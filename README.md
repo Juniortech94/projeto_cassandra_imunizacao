@@ -66,7 +66,7 @@ CREATE TABLE meu_projeto.imunizacao_covid (
 );
 
 
-Motivos do design:
+Motivos da escola de partition key e clustering:
 
 municipio como partition key → garante distribuição e escalabilidade
 
@@ -78,10 +78,10 @@ Arquivo: prepare_csv.py
 
 Funções realizadas:
 
-✔ Remoção de colunas irrelevantes
-✔ Conversão de datas para o formato ISO
-✔ Padronização dos nomes
-✔ Exportação em CSV limpo para ingestão
+1 Remoção de colunas irrelevantes
+2 Conversão de datas para o formato ISO
+3 Padronização dos nomes
+4 Exportação em CSV limpo para ingestão
 
 Executar:
 python prepare_csv.py
