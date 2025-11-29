@@ -19,19 +19,18 @@ Dataset real do Kaggle, com 43 milhões de registros
  Arquivo utilizado: Imu_COVID_RJ.csv
 
  Estrutura do Projeto
-projeto_cassandra_imunizacao/
-│
-├── docker-compose.yml               # Cluster Cassandra com 3 nós
-├── prepare_csv.py                   # Limpeza + padronização do CSV com pandas
-├── amostragem.csv                   # Amostra usada para gráficos
-├── scripts/
-│   └── dsbulk.sh                    # Comandos de ingestão via dsbulk
-│
-├── graficos/
-│   ├── grafico_barra.py             # Geração do gráfico de barras
-│   └── grafico_dispersion.py        # Geração do gráfico de dispersão
-│
-└── README.md                       
+docker-compose.yml
+Sobe o cluster Cassandra com 3 nós usando Docker.
+
+prepare_csv.py
+Realiza limpeza, padronização e preparo do CSV original.
+
+amostragem.csv
+Arquivo de amostra contendo 10 mil registros usados para gerar gráficos.
+
+scripts/dsbulk.sh
+Script com os comandos DSBulk para ingestão dos dados no Cassandra.
+  
 
  Objetivo do Projeto
 
