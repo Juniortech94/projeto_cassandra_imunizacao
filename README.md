@@ -12,13 +12,13 @@ Visualização de dados (gráficos de barras e dispersão)
 
 Dataset real do Kaggle, com 43 milhões de registros
 
-📌 Repositório: https://github.com/Juniortech94/projeto_cassandra_imunizacao
+ Repositório: https://github.com/Juniortech94/projeto_cassandra_imunizacao
 
-📌 Dataset: https://www.kaggle.com/datasets/jsppimentel99/vacinao-covid-19-brasil-05-23
+ Dataset: https://www.kaggle.com/datasets/jsppimentel99/vacinao-covid-19-brasil-05-23
 
-📌 Arquivo utilizado: Imu_COVID_RJ.csv
+ Arquivo utilizado: Imu_COVID_RJ.csv
 
-📂 Estrutura do Projeto
+ Estrutura do Projeto
 projeto_cassandra_imunizacao/
 │
 ├── docker-compose.yml               # Cluster Cassandra com 3 nós
@@ -48,11 +48,11 @@ Ingestão de dados em larga escala usando o dsbulk
 Visualização analítica para responder questões de negócio
 
 
-🧰 1. Preparação do Ambiente
-✔️ Subir o cluster Cassandra (3 nós)
+ 1. Preparação do Ambiente
+ Subir o cluster Cassandra (3 nós)
 docker compose up -d
 
-🗄️ 2. Estrutura da Tabela
+ 2. Estrutura da Tabela
 CREATE KEYSPACE IF NOT EXISTS meu_projeto
 WITH replication = {'class':'SimpleStrategy','replication_factor':3};
 
@@ -88,7 +88,7 @@ python prepare_csv.py
 Gera o arquivo:
 imu_COVID_RJ_prepared.csv
 
-📥 4. Ingestão com DSBulk
+ 4. Ingestão com DSBulk
 
 Arquivo: scripts/dsbulk.sh
 
@@ -103,8 +103,8 @@ Exemplo de comando:
   -delim "," \
   -m "municipio=municipio, estabelecimento_municipio_codigo=estabelecimento_municipio_codigo, data_aplicacao=vacina_dataAplicacao, fabricante=vacina_fabricante_nome, dose=vacina_descricao_dose"
 
-📊 5. Visualizações de Dados (gráficos)
-📌 Gráfico de Barras — Aplicações por Fabricante
+ 5. Visualizações de Dados (gráficos)
+ Gráfico de Barras — Aplicações por Fabricante
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -123,7 +123,7 @@ plt.show()
 
 Resultado: mostra qual fabricante teve maior volume de vacina aplicada.
 
-📌 Gráfico de Dispersão — Data x Município
+ Gráfico de Dispersão — Data x Município
 import pandas as pd
 import matplotlib.pyplot as plt
 
