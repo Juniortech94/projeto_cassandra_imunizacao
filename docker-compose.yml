@@ -1,0 +1,74 @@
+version: "3.8"
+
+services:
+  cassandra1:
+    image: cassandra:4.0
+    container_name: cassandra1
+    hostname: cassandra1
+    environment:
+      - CASSANDRA_CLUSTER_NAME=dev-cluster
+      - CASSANDRA_NUM_TOKENS=256
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=RAC1
+      - CASSANDRA_SEEDS=cassandra1,cassandra2,cassandra3
+      - CASSANDRA_LISTEN_ADDRESS=cassandra1
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra1
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_BROADCAST_RPC_ADDRESS=cassandra1
+    networks:
+      - cass_net
+    ports:
+      - "9042:9042"
+    volumes:
+      - cass1_data:/var/lib/cassandra
+
+  cassandra2:
+    image: cassandra:4.0
+    container_name: cassandra2
+    hostname: cassandra2
+    depends_on:
+      - cassandra1
+    environment:
+      - CASSANDRA_CLUSTER_NAME=dev-cluster
+      - CASSANDRA_NUM_TOKENS=256
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=RAC1
+      - CASSANDRA_SEEDS=cassandra1,cassandra2,cassandra3
+      - CASSANDRA_LISTEN_ADDRESS=cassandra2
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra2
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_BROADCAST_RPC_ADDRESS=cassandra2
+    networks:
+      - cass_net
+    volumes:
+      - cass2_data:/var/lib/cassandra
+
+  cassandra3:
+    image: cassandra:4.0
+    container_name: cassandra3
+    hostname: cassandra3
+    depends_on:
+      - cassandra1
+    environment:
+      - CASSANDRA_CLUSTER_NAME=dev-cluster
+      - CASSANDRA_NUM_TOKENS=256
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=RAC1
+      - CASSANDRA_SEEDS=cassandra1,cassandra2,cassandra3
+      - CASSANDRA_LISTEN_ADDRESS=cassandra3
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra3
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_BROADCAST_RPC_ADDRESS=cassandra3
+    networks:
+      - cass_net
+    volumes:
+      - cass3_data:/var/lib/cassandra
+
+volumes:
+  cass1_data:
+  cass2_data:
+  cass3_data:
+
+networks:
+  cass_net:
+    driver: bridge
