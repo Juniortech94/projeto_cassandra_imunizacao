@@ -1,6 +1,5 @@
 import pandas as pd
-df = pd.read_csv('imu_COVID_RJ_prepared.csv')
-print(df.h)
+df = pd.read_csv('amostragem.csv', sep=';')
 print(df.head(5))
 print(df.columns)
 print(df.info())    
