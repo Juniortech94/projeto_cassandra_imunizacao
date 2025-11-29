@@ -103,41 +103,15 @@ Exemplo de comando:
   -delim "," \
   -m "municipio=municipio, estabelecimento_municipio_codigo=estabelecimento_municipio_codigo, data_aplicacao=vacina_dataAplicacao, fabricante=vacina_fabricante_nome, dose=vacina_descricao_dose"
 
- 5. Visualizações de Dados (gráficos)
- Gráfico de Barras — Aplicações por Fabricante
-import pandas as pd
-import matplotlib.pyplot as plt
+📊 5. Visualizações de Dados (gráficos)
 
-df = pd.read_csv("amostragem.csv")
-
-fabricante_counts = df["vacina_fabricante_nome"].value_counts()
-
-plt.figure(figsize=(10,5))
-fabricante_counts.plot(kind="bar")
-plt.title("Quantidade de aplicações por fabricante")
-plt.xlabel("Fabricante")
-plt.ylabel("Número de aplicações")
-plt.tight_layout()
-plt.show()
-
+📌 **Gráfico de Barras — Aplicações por Fabricante**  
+![Gráfico de Barras](imagens/grafico_barra.png)
 
 Resultado: mostra qual fabricante teve maior volume de vacina aplicada.
 
- Gráfico de Dispersão — Data x Município
-import pandas as pd
-import matplotlib.pyplot as plt
-
-df = pd.read_csv("amostragem.csv")
-
-df["vacina_dataAplicacao"] = pd.to_datetime(df["vacina_dataAplicacao"])
-
-plt.figure(figsize=(12,6))
-plt.scatter(df["vacina_dataAplicacao"], df["municipio"], s=5)
-plt.title("Relação entre data e município das aplicações")
-plt.xlabel("Data da aplicação")
-plt.ylabel("Município")
-plt.tight_layout()
-plt.show()
+📌 **Gráfico de Dispersão — Data x Município**  
+![Gráfico de Dispersão](imagens/grafico_dispersao.png)
 
 
 Resultado: permite visualizar o comportamento temporal da vacinação em diferentes municípios.
